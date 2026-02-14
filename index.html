@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy San Valentino, Amore 💘</title>
+  <title>Happy Valentine's Day, Amore 💘</title>
   <style>
     :root{
       --bg1:#ffe6ef;
@@ -188,7 +188,7 @@
       z-index: 3;
     }
 
-    /* NEW: hide actual content until revealed */
+    /* Hide actual content until revealed */
     .reason .content{
       opacity: 0;
       filter: blur(10px);
@@ -278,9 +278,9 @@
   <div class="app">
     <header>
       <div class="badge">💌 <span id="badgeText">For Amore, with ridiculous love</span></div>
-      <h1 id="headline">Happy San Valentino, <span id="herName">Amore</span> 💘</h1>
+      <h1 id="headline">Happy Valentine's Day, <span id="herName">Amore</span> 💘</h1>
       <p class="subtitle" id="subtitle">
-        First, a little game. Then, a few reasons. Then, a message I probably should’ve handwritten, but technology is my love language too.
+        First, a little game. Then, a few reasons. Then, a message from my heart.
       </p>
     </header>
 
@@ -342,9 +342,8 @@
       herName: "Amore",
       yourName: "Rebecca",
       badgeText: "For Amore, with ridiculous love",
-      headline: "Happy San Valentino, {name} 💘",
-      subtitle:
-        "First, a little game. Then, a few reasons. Then, a message I probably should’ve handwritten, but technology is my love language too.",
+      headline: "Happy Valentine's Day, {name} 💘",
+      subtitle: "First, a little game. Then, a few reasons. Then, a message from my heart.",
       gameIntro: "Let’s play a little game before your surprise, Amore ✨",
       reasons: [
         { title: "Your dedication", text: "You don’t give up, even when things get hard." },
@@ -357,16 +356,14 @@
         { title: "Us", text: "With you, even ordinary days feel like a little miracle." },
       ],
       letterLines: [
-        "Happy Valentine’s Day, {name}.\n\n",
-  "I wanted to write you something simple, because the way I feel about you is the most natural thing in the world.\n\n",
-  "When I think about us, I don't just think about the big moments. I think about the quiet ones—the way your hand feels in mine, the sound of your laugh, and the peace I feel whenever you walk into the room. You have this way of making everything feel soft and safe.\n\n",
-  "Even though there is distance between us today, I want you to know that you are the first thing on my mind this morning and the last thing I think of at night. We have spent enough time counting down days and looking at each other through screens.\n\n",
-  "It warms my heart to know that our \"long distance\" chapter is finally coming to a close. I am already dreaming of next year, when I won't have to say goodbye to you on a call, but can simply reach out and hold you. I truly cannot wait to spend every future Valentine’s Day—and every day in between—right by your side.\n\n",
-  "Thank you for being my person. Thank you for your patience, your kindness, and for the beautiful way you see the world. Being loved by you is the greatest gift I’ve ever received.\n\n",
-  "I love you, deeply and truly.\n\n",
-  "Happy Valentine’s Day,\n"
-]
-
+        "I wanted to write you something simple, because the way I feel about you is the most natural thing in the world.\n\n",
+        "When I think about us, I don't just think about the big moments. I think about the quiet ones—the way your hand feels in mine, the sound of your laugh, and the peace I feel whenever you walk into the room. You have this way of making everything feel soft and safe.\n\n",
+        "Even though there is distance between us today, I want you to know that you are the first thing on my mind this morning and the last thing I think of at night. We have spent enough time counting down days and looking at each other through screens.\n\n",
+        "It warms my heart to know that our \"long distance\" chapter is finally coming to a close. I am already dreaming of next year, when I won't have to say goodbye to you on a call, but can simply reach out and hold you. I truly cannot wait to spend every future Valentine’s Day—and every day in between—right by your side.\n\n",
+        "Thank you for being my person. Thank you for your patience, your kindness, and for the beautiful way you see the world. Being loved by you is the greatest gift I’ve ever received.\n\n",
+        "I love you, deeply and truly.\n\n",
+        "Happy Valentine’s Day,\n"
+      ]
     };
 
     /**********************
@@ -508,7 +505,7 @@
     resetGame();
 
     /**********************
-     * Reasons (FIXED: hidden until tap)
+     * Reasons (hidden until tap)
      **********************/
     const reasonsWrap = document.getElementById("reasonsWrap");
 
