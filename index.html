@@ -185,9 +185,26 @@
       display:flex; align-items:center; justify-content:center;
       font-size:18px; flex:0 0 auto;
       border:1px solid rgba(255,77,136,.18);
+      z-index: 3;
     }
+
+    /* NEW: hide actual content until revealed */
+    .reason .content{
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(2px);
+      transition: .25s opacity, .25s filter, .25s transform;
+      z-index: 1;
+    }
+    .reason.revealed .content{
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+
     .rtitle{ margin:1px 0 3px; font-weight:1000; }
     .rbody{ margin:0; color:var(--muted); line-height:1.45; }
+
     .reason .mask{
       position:absolute; inset:0;
       background: linear-gradient(90deg, rgba(255,77,136,.15), rgba(255,119,168,.12));
@@ -197,6 +214,7 @@
       letter-spacing:.02em;
       opacity:1;
       transition: .25s opacity;
+      z-index: 2;
     }
     .reason.revealed .mask{ opacity:0; pointer-events:none; }
 
@@ -340,11 +358,15 @@
       ],
       letterLines: [
         "Happy Valentine’s Day, {name}.\n\n",
-        "This is your official reminder that you’re my favourite person.\n\n",
-        "I love you in the small ways: the way you make me feel safe, the way you make ordinary days feel special, the way I miss you even when I’m busy.\n\n",
-        "I’m proud of you. And I’m proud of us.\n\n",
-        "Now please proceed to collect your kiss coupon. Redeemable anytime. 💋\n"
-      ]
+  "I wanted to write you something simple, because the way I feel about you is the most natural thing in the world.\n\n",
+  "When I think about us, I don't just think about the big moments. I think about the quiet ones—the way your hand feels in mine, the sound of your laugh, and the peace I feel whenever you walk into the room. You have this way of making everything feel soft and safe.\n\n",
+  "Even though there is distance between us today, I want you to know that you are the first thing on my mind this morning and the last thing I think of at night. We have spent enough time counting down days and looking at each other through screens.\n\n",
+  "It warms my heart to know that our \"long distance\" chapter is finally coming to a close. I am already dreaming of next year, when I won't have to say goodbye to you on a call, but can simply reach out and hold you. I truly cannot wait to spend every future Valentine’s Day—and every day in between—right by your side.\n\n",
+  "Thank you for being my person. Thank you for your patience, your kindness, and for the beautiful way you see the world. Being loved by you is the greatest gift I’ve ever received.\n\n",
+  "I love you, deeply and truly.\n\n",
+  "Happy Valentine’s Day,\n"
+]
+
     };
 
     /**********************
@@ -376,8 +398,7 @@
     /**********************
      * Memory Game
      **********************/
-    // 8 pairs (16 cards). Cute, simple, satisfying.
-    const icons = ["💫","💗","🪽","🌙","✨","🌸","🫶","💌"]; // swap any emoji you want
+    const icons = ["💫","💗","🪽","🌙","✨","🌸","🫶","💌"]; // 8 pairs
     const grid = document.getElementById("grid");
     const movesEl = document.getElementById("moves");
     const matchesEl = document.getElementById("matches");
@@ -487,7 +508,7 @@
     resetGame();
 
     /**********************
-     * Reasons
+     * Reasons (FIXED: hidden until tap)
      **********************/
     const reasonsWrap = document.getElementById("reasonsWrap");
 
@@ -501,15 +522,16 @@
         h.className = "heart";
         h.textContent = "♥";
 
-        const txt = document.createElement("div");
-        txt.innerHTML = `<div class="rtitle">${r.title}</div><p class="rbody">${r.text}</p>`;
+        const content = document.createElement("div");
+        content.className = "content";
+        content.innerHTML = `<div class="rtitle">${r.title}</div><p class="rbody">${r.text}</p>`;
 
         const mask = document.createElement("div");
         mask.className = "mask";
         mask.textContent = "Tap to reveal";
 
         row.appendChild(h);
-        row.appendChild(txt);
+        row.appendChild(content);
         row.appendChild(mask);
 
         row.addEventListener("click", () => {
